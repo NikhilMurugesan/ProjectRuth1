@@ -12,6 +12,7 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { forkJoin } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth.service';
+import { UsersService } from 'src/app/service/users.service';
 export function passwordsMatchValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const password = control.get('password')?.value;
@@ -41,7 +42,8 @@ export class SignupComponent implements OnInit {
 
   constructor(private authService: AuthService,
     private router: Router,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private usersService: UsersService
     ) { }
 
   ngOnInit(): void {
@@ -71,9 +73,9 @@ export class SignupComponent implements OnInit {
     this.authService
       .signUp(email, password)
       .pipe(
-        /*switchMap(({ user: { uid } }) =>
+        switchMap(({ user: { uid } }) =>
           this.usersService.addUser({ uid, email, displayName: name })
-        ),*/
+        ),
         this.toast.observe({
           success: 'Congrats! You are all signed up',
           loading: 'Signing up...',

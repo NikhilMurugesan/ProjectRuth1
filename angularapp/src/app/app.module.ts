@@ -21,6 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NotesComponent } from './notes/notes.component';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { ProfileComponent } from './profile/profile.component';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    NotesComponent
+    NotesComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     BrowserAnimationsModule,
     FormsModule,
     HotToastModule.forRoot()
