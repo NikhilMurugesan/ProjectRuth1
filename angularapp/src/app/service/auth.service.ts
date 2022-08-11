@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
+import{
   Auth,
   signInWithEmailAndPassword,
   authState,
@@ -8,6 +8,7 @@ import {
   UserInfo,
   UserCredential,
 } from '@angular/fire/auth';
+import { userInfo } from 'os';
 import { concatMap, from, Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
@@ -15,7 +16,6 @@ import { concatMap, from, Observable, of, switchMap } from 'rxjs';
 })
 export class AuthService {
   currentUser$ = authState(this.auth);
-
   constructor(private auth: Auth) {}
 
   signUp(email: string, password: string): Observable<UserCredential> {
@@ -26,16 +26,17 @@ export class AuthService {
     return from(signInWithEmailAndPassword(this.auth, email, password));
   }
 
-  // updateProfile(profileData: Partial<UserInfo>): Observable<any> {
-  //   const user = this.auth.currentUser;
-  //   return of(user).pipe(
-  //     concatMap((user) => {
-  //       if (!user) throw new Error('Not authenticated');
 
-  //       return updateProfile(user, profileData);
-  //     })
-  //   );
-  // }
+   updateProfile(profileData: Partial<UserInfo>): Observable<any> {
+     const user = this.auth.currentUser;
+     return of(user).pipe(
+       concatMap((user) => {
+       if (!user) throw new Error('Not authenticated');
+
+        return updateProfile(user, profileData);
+      })
+    );
+   }
 
   logout(): Observable<any> {
     return from(this.auth.signOut());

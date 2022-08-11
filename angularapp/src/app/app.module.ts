@@ -23,7 +23,7 @@ import { NotesComponent } from './notes/notes.component';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { ProfileComponent } from './profile/profile.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule,
+    MatInputModule,HttpClientModule,
     ReactiveFormsModule,
     MatMenuModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

@@ -35,6 +35,11 @@ const routes: Routes = [
    // ...canActivate(redirectUnauthorizedToLogin),
   },
   {
+    path: 'notes/{uid}',
+    component: NotesComponent,
+   // ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
     path: 'profile',
     component: ProfileComponent,
    // ...canActivate(redirectUnauthorizedToLogin),

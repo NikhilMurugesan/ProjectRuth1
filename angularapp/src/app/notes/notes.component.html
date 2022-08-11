@@ -1,4 +1,30 @@
 <p>notes works!</p>
 <ng-container *ngIf="user$ | async as user">
-    <h1>Welcome to the home page, {{user.email}}!</h1>
+    
+    <h1>Welcome to the home page, {{user.uid}}! </h1>
+    
+    <div class="note_input" id="note_inputt">
+        <h3>Welcome Admin! Enter details to add a Prepaid plan</h3>
+        <form (ngSubmit) = "onSubmit()">
+
+            <div><input [(ngModel)] = "note.note" name="note" type="text" placeholder="Enter your note"></div>
+        <span> note.uid = user.uid </span>
+
+            <br><br>
+            <button type="submit" class="btn btn-success">Add note</button>
+        </form>
+
+        <tbody>
+            <tr *ngFor = "let note of notes" >
+                
+                <td> {{ note.note }} </td>
+               
+                
+                <td>
+                  <!--  <button (click) = "editnote(note.id)" class = "btn btn-info"> Update</button>-->
+                    <button (click) = "deleteNote(note.nid)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button> 
+                </td>
+            </tr>
+        </tbody>
+    </div>
 </ng-container>
