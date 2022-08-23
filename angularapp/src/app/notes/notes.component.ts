@@ -36,7 +36,8 @@ export class NotesComponent implements OnInit {
   user$ = this.userservice.currentUserProfile$;
   
   x:any;
-  z:string;
+  z:any;
+  p: string;
   y:any = [];
   note : Note = new Note();
   notes: Note[]|undefined;
@@ -57,20 +58,21 @@ export class NotesComponent implements OnInit {
  
   private getNote(){
     
-    console.log(this.z);
-    this.noteservice.getusersNotes(this.getuid()).subscribe(notes => this.notes = notes);
+  this.getuid();
+  console.log("z="+this.z);
+    this.noteservice.getusersNotes(this.z).subscribe(notes => this.notes = notes);
     this.getuserData();
-    console.log(this.getuid());
-
   }
   getuid(){
     this.user$.pipe().subscribe(data => {
       console.log(data?.uid);
-      this.note.uid = data?.uid;
+      this.z=data?.uid;
+    this.note.uid = data?.uid;
       
     });
     
   }
+ 
   getuserData() {
     const dbInstance = collection(this.firestore, 'users');
     getDocs(dbInstance).then((response)=>{
@@ -97,6 +99,7 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getuid();
     this.getNote();
   }
 
@@ -104,6 +107,7 @@ export class NotesComponent implements OnInit {
     this.noteservice.deleteNote(nid).subscribe(data => {
       console.log(data);
       this.getNote();
+      
     }
     );
   }

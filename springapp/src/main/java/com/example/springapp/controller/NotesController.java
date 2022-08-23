@@ -61,6 +61,7 @@ public class NotesController {
 
 	@GetMapping("/notes/{uid}")
 	public List<NOTE> getAllNotesByUser(@PathVariable String uid) {
+		
 		return noteservice.getAllNotesbyUser(uid);
 	}
 
@@ -68,6 +69,11 @@ public class NotesController {
     public NOTE createNote(@RequestBody NOTE note) {
         return noteservice.createNote(note);
     }
+
+	@PutMapping("/updatenote/{id}")
+	public NOTE updateNote(@PathVariable int id, @RequestBody NOTE note) {
+		return noteservice.updateNote(id, note);
+	}
 
 	@DeleteMapping("/deletenote/{nid}")
 	public String deletenote(@PathVariable int nid) {

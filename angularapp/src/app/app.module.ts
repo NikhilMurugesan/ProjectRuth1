@@ -25,6 +25,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import {HttpClientModule} from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     
@@ -34,6 +35,7 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     NotesComponent,
     ProfileComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @Setter
-
 public class NOTE {
 
     @Id	
@@ -24,6 +23,8 @@ public class NOTE {
 
 private String uid;
 private String note;
+
+
 
 
 

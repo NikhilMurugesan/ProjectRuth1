@@ -29,6 +29,7 @@ const routes: Routes = [
     component: SignupComponent,
   //  ...canActivate(redirectLoggedInToHome),
   },
+
   {
     path: 'notes',
     component: NotesComponent,

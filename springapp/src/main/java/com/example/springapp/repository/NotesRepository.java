@@ -13,6 +13,7 @@ public interface NotesRepository extends JpaRepository<NOTE, Integer> {
    // List<NOTE> findAllByUid(@Param("uid") String uid);
         
 
-    @Query(value = "SELECT * FROM NOTE WHERE UID IN ('UID')", nativeQuery = true)
-    List<NOTE> findAllByUid(@Param("UID") String UID);
+    @Query(value = "SELECT * FROM note WHERE uid=?1", nativeQuery = true)
+    List<NOTE> findAllnotesByUid(String uid);
     }
+/* */

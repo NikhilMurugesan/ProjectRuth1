@@ -23,7 +23,7 @@ export class NotesService {
   deleteNote(id: number): Observable<any> {
     return this.httpClient.delete(`${this.baseURl3}/${id}`);
   }
-  getusersNotes(uid: void): Observable<Note[]> {
+  getusersNotes(uid: string): Observable<Note[]> {
     return this.httpClient.get<Note[]>(`${this.baseURl1}/${uid}`);
   }
 }
