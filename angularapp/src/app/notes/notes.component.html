@@ -1,4 +1,4 @@
-<p>notes work!</p>
+-<p>notes work!</p>
 <ng-container *ngIf="user$ | async as user">
     
     <h1>Welcome to the home page, {{user.uid}}! </h1>
@@ -9,10 +9,8 @@
 
           <ul>
             <li>
-              <a href="#" contenteditable>
-                <h2>Title #1</h2>
-                <p>Text Content #1</p>
-             
+              <a href="#" contenteditable >
+
           <div><input [(ngModel)] = "note.note" name="note" type="text" placeholder="Enter your note"></div>
             <br><br>
             <button type="submit" class="btn btn-success">Add note</button>
@@ -23,8 +21,13 @@
 
         <tbody>
             <tr *ngFor = "let note of notes" >
-                
-                <td> {{ note.note }} </td>
+              <ul>
+                <li>
+                  <a href="#" contenteditable>  
+              <p> {{ note.note }} </p>
+                  </a>
+                </li>
+              </ul>
                
                 
                 <td>
@@ -35,42 +38,8 @@
         </tbody>
     </div>
     <ul>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #1</h2>
-            <p>Text Content #1</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #2</h2>
-            <p>Text Content #2</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #3</h2>
-            <p>Text Content #3</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #4</h2>
-            <p>Text Content #4</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #5</h2>
-            <p>Text Content #5</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #6</h2>
-            <p>Text Content #6</p>
-          </a>
-        </li>
+      
+       
         <li>
           <a href="#" contenteditable>
             <h2>Title #7</h2>
