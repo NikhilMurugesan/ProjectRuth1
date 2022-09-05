@@ -7,13 +7,11 @@
 
   html,
 
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+  body {
+    height: 100%;
+    background-image: url("https://cdn.dribbble.com/users/653699/screenshots/15648656/media/9d41b3c079f3ca5e14f6641b73e5cc08.png?compress=1&resize=1000x750&vertical=top");
+  }
+
 
 .form-container {
   display: block;

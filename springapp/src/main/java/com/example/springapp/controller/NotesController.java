@@ -1,9 +1,12 @@
 package com.example.springapp.controller;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,9 +63,9 @@ public class NotesController {
     }
 
 	@GetMapping("/notes/{uid}")
-	public List<NOTE> getAllNotesByUser(@PathVariable String uid) {
+	public ResponseEntity<List<NOTE>> getAllNotesByUser(@PathVariable String uid) {
 		
-		return noteservice.getAllNotesbyUser(uid);
+		return ResponseEntity.ok( noteservice.getAllNotesbyUser(uid));
 	}
 
     @PostMapping("/createnote")
@@ -76,7 +79,11 @@ public class NotesController {
 	}
 
 	@DeleteMapping("/deletenote/{nid}")
-	public String deletenote(@PathVariable int nid) {
-		return noteservice.deleteNote(nid);
+	public ResponseEntity<Map<String,Boolean>> deletenote(@PathVariable int nid) {
+	
+		 noteservice.deleteNote(nid);
+		 Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		 return ResponseEntity.ok(response);
 	}
 }

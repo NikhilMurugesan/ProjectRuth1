@@ -1,10 +1,21 @@
--<p>notes work!</p>
-<ng-container *ngIf="user$ | async as user">
+<!DOCTYPE html>
+<html class="body">
+  
+  <ng-container *ngIf="user$ | async as user">
+    <head>
+      <style>
+      body  {
+        background-image: url("https://legacynyplorg-live.s3.amazonaws.com/s3fs-public/sitcky-notes-2.5_secs.gif");
+        
+      }
+      </style>
+      </head>
     
     <h1>Welcome to the home page, {{user.uid}}! </h1>
     
     <div class="note_input" id="note_inputt">
-        
+    <div class="body">
+
         <form (ngSubmit) = "onSubmit()">
 
           <ul>
@@ -19,23 +30,23 @@
           </ul>
         </form>
 
-        <tbody>
-            <tr *ngFor = "let note of notes" >
-              <ul>
+        <div class ="grid-container" *ngFor = "let note of notes">
+           
+              <div>
+              <ul class ="grid-item" >
                 <li>
-                  <a href="#" contenteditable>  
-              <p> {{ note.note }} </p>
+                  <a  >  
+              <div>  {{ note.note }} </div>
+                    <br><br>
+              <button (click) = "editnote(note.nid)" class = "button"> Update</button>
+                    <button (click) = "deleteNote(note.nid)" class = "button" style="margin-left: 10px"> Delete</button> 
                   </a>
+                  
                 </li>
               </ul>
-               
-                
-                <td>
-                  <!--  <button (click) = "editnote(note.id)" class = "btn btn-info"> Update</button>-->
-                    <button (click) = "deleteNote(note.nid)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button> 
-                </td>
-            </tr>
-        </tbody>
+            </div>
+           
+          </div>
     </div>
     <ul>
       
@@ -53,4 +64,6 @@
           </a>
         </li>
       </ul>
+    </div>
 </ng-container>
+</html>
