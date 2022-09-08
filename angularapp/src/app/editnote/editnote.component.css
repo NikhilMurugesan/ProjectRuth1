@@ -1,0 +1,104 @@
+body{
+    background:url("https://legacynyplorg-live.s3.amazonaws.com/s3fs-public/sitcky-notes-2.5_secs.gif");     
+  
+  
+  }
+    
+    *{
+      margin:0;
+      padding:0;
+    }
+    .grid-container {
+      display: inline-table;
+      grid-template-columns: repeat(3, 1fr);
+      
+    }
+    .button {
+    padding: 5px 15px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 4px #999;
+  }
+  
+  .button:hover {background-color: #3e8e41}
+  
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+    }
+    
+    h2 {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    p {
+      font-family: 'Reenie Beanie';
+      font-size: 2rem;
+    }
+    ul,li{
+      list-style:none;
+    }
+    ul{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    ul li a{
+      text-decoration:none;
+      color:#000;
+      background:#ffc;
+      display:block;
+      height:10em;
+      width:10em;
+      padding:1em;
+      box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+      transform: rotate(-6deg);
+      transition: transform .15s linear;
+    }
+    
+    ul li:nth-child(even) a{
+      transform:rotate(4deg);
+      position:relative;
+      top:5px;
+      background:#cfc;
+    }
+    ul li:nth-child(3n) a{
+      transform:rotate(-3deg);
+      position:relative;
+      top:-5px;
+      background:rgb(33, 33, 165);
+    }
+    ul li:nth-child(5n) a{
+      transform:rotate(5deg);
+      position:relative;
+      top:-10px;
+    }
+    
+    ul li a:hover,ul li a:focus{
+      box-shadow:10px 10px 7px rgba(0,0,0,.7);
+      transform: scale(1.25);
+      position:relative;
+      z-index:5;
+    }
+    
+    ul li{
+      margin:1em;
+    }
+    mat-toolbar{
+      justify-content: space-between;
+      background-color: #00bcd4;
+      color: white;
+  }

@@ -97,3 +97,8 @@ body{
   ul li{
     margin:1em;
   }
+  mat-toolbar{
+    justify-content: space-between;
+    background-color: #00bcd4;
+    color: white;
+}

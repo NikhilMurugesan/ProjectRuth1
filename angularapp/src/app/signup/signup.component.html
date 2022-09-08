@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+  <mat-toolbar colour ="primary">
+    Welcome to Notes App
+
+    <div>
+    <button mat-button routerLink = "/login">
+        <mat-icon>login</mat-icon>
+        login
+        </button>
+        
+        </div>
+</mat-toolbar>
 <div class="form-container mat-elevation-z5">
     <h1>Sign Up a New User!</h1>
     <form [formGroup]="signUpForm" (ngSubmit)="submit()">

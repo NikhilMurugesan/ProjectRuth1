@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="body">
+  <mat-toolbar colour ="primary">
+    Welcome to Notes App
+
+    <div>
+    <button mat-button routerLink = "/login">
+        <mat-icon>login</mat-icon>
+        login
+        </button>
+        <button mat-button routerLink = "/signup">
+          <mat-icon>login</mat-icon>
+          Signup
+          </button>
+        </div>
+</mat-toolbar>
+ 
+    
+    <div class="note_input" id="note_inputt">
+    <div class="body">
+
+        <form (ngSubmit) = "onSubmit()">
+
+          <ul>
+            <li>
+              <a href="#" contenteditable >
+
+          <div><input [(ngModel)] = "note.note" name="note" type="text"></div>
+            <br><br>
+            <button type="submit" class="btn btn-success">Update note</button>
+          </a>
+        </li>
+          </ul>
+        </form>
+    </div>
+    </div>
+</html>

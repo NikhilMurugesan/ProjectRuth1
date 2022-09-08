@@ -24,7 +24,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { ProfileComponent } from './profile/profile.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import {HttpClientModule} from '@angular/common/http';
-
+import { EditnoteComponent } from './editnote/editnote.component';
+//import { EditnoteComponent } from './editnote/editnote.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     NotesComponent,
     ProfileComponent,
+    EditnoteComponent,
+    //EditnoteComponent,
     
   ],
   imports: [

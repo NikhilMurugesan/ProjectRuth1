@@ -20,14 +20,14 @@ public class Noteservice {
     public List<NOTE> getAllNotes() {
         return notesRepository.findAll();
     }
-    /* 
+    
     public NOTE getNote(int nid) {
         Optional<NOTE> note = notesRepository.findById(nid);
         if(note.isPresent()) {
             return note.get();
         }
         return null;
-    }*/
+    }
     
     
     public NOTE createNote(NOTE note) {
@@ -47,8 +47,8 @@ public class Noteservice {
     }
 
 
-    public NOTE updateNote(int id, NOTE note) {
-        NOTE note1 = notesRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Note not found"));
+    public NOTE updateNote(int nid, NOTE note) {
+        NOTE note1 = notesRepository.findById(nid).orElseThrow(()-> new ResourceNotFoundException("Note not found"));
         note1.setNote(note.getNote());
         return notesRepository.save(note1);
     }

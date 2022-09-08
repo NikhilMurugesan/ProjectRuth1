@@ -10,6 +10,8 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
+import { EditnoteComponent } from './editnote/editnote.component';
+//import { EditnoteComponent } from './editnote/editnote.component';
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
@@ -45,6 +47,13 @@ const routes: Routes = [
     component: ProfileComponent,
    // ...canActivate(redirectUnauthorizedToLogin),
   },
+ 
+  {
+    path: 'editnote/:id',
+    component: EditnoteComponent,
+   // ...canActivate(redirectUnauthorizedToLogin),
+  }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

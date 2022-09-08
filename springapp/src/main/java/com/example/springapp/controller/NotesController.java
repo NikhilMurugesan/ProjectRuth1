@@ -67,15 +67,20 @@ public class NotesController {
 		
 		return ResponseEntity.ok( noteservice.getAllNotesbyUser(uid));
 	}
+	@GetMapping("/note/{nid}")
+	public ResponseEntity<NOTE> getNote(@PathVariable int nid) {
+		
+		return ResponseEntity.ok( noteservice.getNote(nid));
+	}
 
     @PostMapping("/createnote")
     public NOTE createNote(@RequestBody NOTE note) {
         return noteservice.createNote(note);
     }
 
-	@PutMapping("/updatenote/{id}")
-	public NOTE updateNote(@PathVariable int id, @RequestBody NOTE note) {
-		return noteservice.updateNote(id, note);
+	@PutMapping("/updatenote/{nid}")
+	public NOTE updateNote(@PathVariable int nid, @RequestBody NOTE note) {
+		return noteservice.updateNote(nid, note);
 	}
 
 	@DeleteMapping("/deletenote/{nid}")

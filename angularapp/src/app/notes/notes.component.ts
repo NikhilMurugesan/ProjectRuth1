@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { NotesService } from 'src/app/service/notes.service';
 import { Note } from 'src/app/models/note';
-import { Router,RouterModule } from '@angular/router';
+import { ActivatedRoute, Router,RouterModule } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { switchMap, tap } from 'rxjs';
 import { ImageUploadService } from 'src/app/service/image-upload.service';
@@ -42,8 +42,9 @@ export class NotesComponent implements OnInit {
   q: Note= new Note();
   note : Note = new Note();
   notes: Note[]|undefined;
+  UID : any;
  // userprofile : any = UsersService.currentUserProfile$;
-  constructor(public firestore: Firestore,private authService:AuthService,private noteservice:NotesService,private router: Router,private userservice:UsersService) { }
+  constructor(public firestore: Firestore,private authService:AuthService,private noteservice:NotesService,private router: Router,private userservice:UsersService,private route :ActivatedRoute) { }
   
   addnote(){
     this.x =document.getElementById("note_inputt");
@@ -115,6 +116,8 @@ export class NotesComponent implements OnInit {
     this.getuid();
     this.getNote();
     this.getnotebycurrentuser();
+    this.UID=this.route.snapshot.params ['uid'];
+    console.log(this.UID);
     
   }
 
@@ -128,7 +131,7 @@ export class NotesComponent implements OnInit {
   }
   editnote(nid:number)
   {
-    
+    this.router.navigate(['editnote',nid]);
   }
   
   

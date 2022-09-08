@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html class="body">
-  
+ 
   <ng-container *ngIf="user$ | async as user">
-    <head>
-      <style>
-      body  {
-        background-image: url("https://legacynyplorg-live.s3.amazonaws.com/s3fs-public/sitcky-notes-2.5_secs.gif");
-        
-      }
-      </style>
-      </head>
-    
-    <h1>Welcome to the home page, {{user.uid}}! </h1>
+    <mat-toolbar colour ="primary">
+     <h1> Welcome to Notes App {{user.displayName}}</h1>
+     <div>
+     <button mat-button routerLink = "/profile">
+      <mat-icon>login</mat-icon>
+      Profile
+      </button>
+      <button mat-button routerLink = "">
+        <mat-icon>login</mat-icon>
+        Logout
+        </button>
+      </div>
+  </mat-toolbar>
     
     <div class="note_input" id="note_inputt">
     <div class="body">
@@ -48,22 +51,6 @@
            
           </div>
     </div>
-    <ul>
-      
-       
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #7</h2>
-            <p>Text Content #7</p>
-          </a>
-        </li>
-        <li>
-          <a href="#" contenteditable>
-            <h2>Title #8</h2>
-            <p>Text Content #8</p>
-          </a>
-        </li>
-      </ul>
     </div>
 </ng-container>
 </html>
