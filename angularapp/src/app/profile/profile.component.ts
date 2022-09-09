@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { switchMap, tap } from 'rxjs';
@@ -28,7 +29,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private route: Router,
   ) {}
 
   ngOnInit(): void {
@@ -70,5 +72,10 @@ export class ProfileComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+  logout() {
+    
+      this.route.navigate(['/']);
+    
   }
 }

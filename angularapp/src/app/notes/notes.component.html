@@ -6,14 +6,34 @@
     <mat-toolbar colour ="primary">
      <h1> Welcome to Notes App {{user.displayName}}</h1>
      <div>
-     <button mat-button routerLink = "/profile">
-      <mat-icon>login</mat-icon>
-      Profile
-      </button>
-      <button mat-button routerLink = "">
-        <mat-icon>login</mat-icon>
-        Logout
+      <ng-container *ngIf="user$ | async as user; else loginButton">
+        <button mat-button [matMenuTriggerFor]="userMenu">
+          <img
+            width="30"
+            height="30"
+            class="profile-image-toolbar"
+            [src]="user.photoURL ?? 'assets/images/image-placeholder.png'"
+          />
+          {{ user.displayName }}
+          <mat-icon>expand_more</mat-icon>
         </button>
+      </ng-container>
+      <ng-template #loginButton>
+        <button mat-button routerLink="login">
+          <mat-icon>login</mat-icon>
+          Login
+        </button>
+      </ng-template>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item routerLink="/profile">
+          <mat-icon>account_circle</mat-icon>
+          Profile
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+      </mat-menu>
       </div>
   </mat-toolbar>
     

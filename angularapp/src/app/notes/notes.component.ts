@@ -32,8 +32,8 @@ import { ProfileUser } from '../models/user';
 })
 export class NotesComponent implements OnInit {
 
-  user$ = this.authService.currentUser$;
- // user$ = this.userservice.currentUserProfile$;
+  //user$ = this.authService.currentUser$;
+  user$ = this.userservice.currentUserProfile$;
   
   x:any;
   z:any;
