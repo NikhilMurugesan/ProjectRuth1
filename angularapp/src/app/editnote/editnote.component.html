@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html class="body">
+  <div id ="backgrounds">
   <mat-toolbar colour ="primary">
     Welcome to Notes App
 
-    <div>
-    <button mat-button routerLink = "/login">
-        <mat-icon>login</mat-icon>
-        login
-        </button>
-        <button mat-button routerLink = "/signup">
-          <mat-icon>login</mat-icon>
-          Signup
-          </button>
-        </div>
 </mat-toolbar>
  
     
@@ -27,11 +18,12 @@
 
           <div><input [(ngModel)] = "note.note" name="note" type="text"></div>
             <br><br>
-            <button type="submit" class="btn btn-success">Update note</button>
+            <button type="submit" class="button">Update note</button>
           </a>
         </li>
           </ul>
         </form>
     </div>
     </div>
+  </div>
 </html>

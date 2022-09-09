@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NonNullableFormBuilder } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { switchMap, tap } from 'rxjs';
@@ -16,20 +16,19 @@ import { UsersService } from 'src/app/service/users.service';
 export class ProfileComponent implements OnInit {
   user$ = this.usersService.currentUserProfile$;
 
-  profileForm = this.fb.group({
-    uid: [''],
-    displayName: [''],
-    firstName: [''],
-    lastName: [''],
-    phone: [''],
-    address: [''],
+  profileForm = new FormGroup({
+    uid: new FormControl(''),
+    displayName: new FormControl(''),
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    phone: new FormControl(''),
+    address: new FormControl(''),
   });
 
   constructor(
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
-    private usersService: UsersService,
-    private fb: NonNullableFormBuilder
+    private usersService: UsersService
   ) {}
 
   ngOnInit(): void {
@@ -60,14 +59,9 @@ export class ProfileComponent implements OnInit {
   }
 
   saveProfile() {
-    const { uid, ...data } = this.profileForm.value;
-
-    if (!uid) {
-      return;
-    }
-
+    const profileData = this.profileForm.value;
     this.usersService
-      .updateUser({ uid, ...data })
+      .updateUser(profileData)
       .pipe(
         this.toast.observe({
           loading: 'Saving profile data...',

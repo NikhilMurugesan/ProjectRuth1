@@ -1,21 +1,21 @@
+<!DOCTYPE html>
+<html>
 <mat-toolbar colour ="primary">
   Welcome to Notes App
 
   <div>
-  <button mat-button routerLink = "/login">
+  <button mat-button routerLink = "/">
       <mat-icon>login</mat-icon>
-      login
+      logout
       </button>
-      <button mat-button routerLink = "/signup">
-        <mat-icon>login</mat-icon>
-        Signup
-        </button>
+      
       </div>
 </mat-toolbar>
 <div
   class="form-container mat-elevation-z5 text-center"
   *ngIf="user$ | async as user"
 >
+<div class="text-center">
   <h1>Update Profile</h1>
   <div class="profile-image">
     <img
@@ -82,3 +82,5 @@
     </button>
   </form>
 </div>
+</div>
+</html>

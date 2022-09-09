@@ -1,16 +1,19 @@
-body{
-  background:url("https://legacynyplorg-live.s3.amazonaws.com/s3fs-public/sitcky-notes-2.5_secs.gif");     
-
+#backgrounds{
+  background:url("https://img.freepik.com/premium-photo/blank-backboard-background_24076-517.jpg?w=360");     
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 
 }
   
   *{
     margin:0;
     padding:0;
+    background-color: transparent;
   }
   .grid-container {
     display: inline-table;
     grid-template-columns: repeat(3, 1fr);
+    background-color: transparent;
     
   }
   .button {
@@ -34,7 +37,7 @@ body{
   transform: translateY(4px);
 }
   .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
     padding: 10px;
     font-size: 20px;
     text-align: center;
@@ -43,6 +46,7 @@ body{
   h2 {
     font-weight: bold;
     font-size: 2rem;
+    background-color: transparent;
   }
   p {
     font-family: 'Reenie Beanie';
@@ -55,11 +59,13 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: transparent;
   }
   ul li a{
     text-decoration:none;
     color:#000;
     background:#ffc;
+    
     display:block;
     height:10em;
     width:10em;
@@ -101,4 +107,59 @@ body{
     justify-content: space-between;
     background-color: #00bcd4;
     color: white;
+}
+@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+* { box-sizing:border-box; }
+
+body { background:url(http://subtlepatterns.com/patterns/little_pluses.png) #cacaca; margin:30px; }
+
+#create, textarea  { 
+  float:left; 
+  padding:25px 25px 40px;
+  margin:0 20px 20px 0;
+  width:250px;
+  height:250px; 
+}
+
+#create {
+  user-select:none;
+  padding:20px; 
+  border-radius:20px;
+  text-align:center; 
+  border:15px solid rgba(0,0,0,0.1); 
+  cursor:pointer;
+  color:rgba(0,0,0,0.1);
+  font:220px "Helvetica", sans-serif;
+  line-height:185px;
+}
+
+#create:hover { border-color:rgba(0,0,0,0.2); color:rgba(0,0,0,0.2); }
+
+textarea {
+  font:20px 'Gloria Hallelujah', cursive; 
+  line-height:1.5;
+  border:0;
+  border-radius:3px;
+  background: linear-gradient(#F9EFAF, #F7E98D);
+  box-shadow:0 4px 6px rgba(0,0,0,0.1);
+  overflow:hidden;
+  transition:box-shadow 0.5s ease;
+  font-smoothing:subpixel-antialiased;
+  max-width:520px;
+  max-height:250px;
+}
+textarea:hover { box-shadow:0 5px 8px rgba(0,0,0,0.15); }
+textarea:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
+
+input[type=text] {
+  width: 100%;
+  padding: 0px 0px;
+  margin: 0px 0;
+  box-sizing: border-box;
+  
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
 }

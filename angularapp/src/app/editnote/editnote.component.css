@@ -1,8 +1,20 @@
-body{
-    background:url("https://legacynyplorg-live.s3.amazonaws.com/s3fs-public/sitcky-notes-2.5_secs.gif");     
+#backgrounds{
+  background:url("https://img.freepik.com/premium-photo/blank-backboard-background_24076-517.jpg?w=360");     
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+input[type=text] {
+  width: 100%;
+  padding: 0px 0px;
+  margin: 0px 0;
+  box-sizing: border-box;
   
-  
-  }
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+}
     
     *{
       margin:0;

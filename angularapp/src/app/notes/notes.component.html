@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html class="body">
- 
+
+<html >
+  <div id ="backgrounds">
   <ng-container *ngIf="user$ | async as user">
     <mat-toolbar colour ="primary">
      <h1> Welcome to Notes App {{user.displayName}}</h1>
@@ -17,17 +18,18 @@
   </mat-toolbar>
     
     <div class="note_input" id="note_inputt">
-    <div class="body">
+    <div >
 
         <form (ngSubmit) = "onSubmit()">
 
           <ul>
             <li>
               <a href="#" contenteditable >
-
+                
           <div><input [(ngModel)] = "note.note" name="note" type="text" placeholder="Enter your note"></div>
             <br><br>
-            <button type="submit" class="btn btn-success">Add note</button>
+            <button type="submit" class ="button" >Add note</button>
+               
           </a>
         </li>
           </ul>
@@ -52,5 +54,7 @@
           </div>
     </div>
     </div>
+
 </ng-container>
+</div>
 </html>
